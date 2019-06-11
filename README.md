@@ -90,6 +90,13 @@ for...of循环
 2.对象的Key值构建
 3.自定义对象方法
 4.对象Object.is()比较  注意: 区别 ===   (===为同值相等，is()为严格相等)
+5.对象合并 Object.assign()合并对象
+
+##Symbol 在对象中的作用
+1.声明Symbol ===>意思是全局标记
+2.Symbol的打印
+3.Symbol在对象中的应用:使用Symbol构建对象的Key，并调用和赋值
+4.Symbol对象元素的保护作用
 
 
 

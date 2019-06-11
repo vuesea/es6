@@ -416,8 +416,45 @@ console.log(Object.is(+0,-0)) //false
 console.log(Object.is(NaN,NaN)) //true */
 
 //5.对象合并 Object.assign()合并对象
-var name = {name:'vuesea'}
+/* var name = {name:'vuesea'}
 var skill = {skill:'web'}
 var love = {love:'凌云'}
 let man = Object.assign(name,skill,love)
-console.log(man)
+console.log(man) */
+
+//Symbol 声明Symbol
+/* let a = new String
+let b = new Number
+let c = new Boolean
+let d = new Array 
+let e = new Object
+let f = Symbol()
+console.log((typeof(f))) */
+//2/symbol的打印
+/* var g = Symbol('vuesea')
+console.log(g)
+console.log(g.toString()) */
+//3.Symbol在对象中的应用 :使用Symbol构建对象的Key，并调用和赋值
+/* let vuesea = Symbol();
+let obj = {
+	[vuesea]:'技术海'
+}
+console.log(obj[vuesea])
+obj[vuesea] = 'web'
+console.log(obj[vuesea]) */
+
+//4.Symbol对象元素的保护作用
+/* var obj = {name: 'vuesea',skill:'web',age:18}
+for (const item in obj) {
+	console.log(obj[item])
+} */
+var obj = {
+	name: 'vuesea',
+	skill: 'web'
+}
+let age = Symbol()
+obj[age] = 18
+for (const item in obj) {
+	console.log(obj[item])
+}
+console.log(obj)
