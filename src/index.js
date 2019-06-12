@@ -448,7 +448,7 @@ console.log(obj[vuesea]) */
 for (const item in obj) {
 	console.log(obj[item])
 } */
-var obj = {
+/* var obj = {
 	name: 'vuesea',
 	skill: 'web'
 }
@@ -457,4 +457,166 @@ obj[age] = 18
 for (const item in obj) {
 	console.log(obj[item])
 }
-console.log(obj)
+console.log(obj) */
+
+// ###  Set和WeakSet数据结构
+
+/* //数组的形式构建的 1.set 的声明  
+let setArr = new Set(['vuesea','技术海','web','vuesea']) 
+console.log(setArr)
+//Set和Array 的区别是Set不允许内部有重复的值，如果有只显示一个，相当于去重。虽然Set很像数组，但是他不是数组。
+
+//2.set的增删查
+//增,不同于数组 增加的push --> set 使用了更有语义化的add
+setArr.add('前端小白')
+console.log(setArr)
+//删 delete
+setArr.delete('前端小白')
+console.log(setArr)
+//查找 has
+console.log(setArr.has('vuesea'))
+//  clear (清除) ---> 清空 
+//setArr.clear()
+console.log(setArr)
+
+//set的循环 for of 循环
+for(let item of setArr){
+	console.log(item)
+}
+
+//size 属性  获取Set值得数量
+console.log(setArr.size)
+
+//forEach 循环 
+setArr.forEach(value => {
+	console.log(value)
+});
+
+//WeakSet 的声明
+let weakObj = new WeakSet()
+let obj = {a:'vuesea',b:'技术海'}
+weakObj.add(obj)
+console.log(weakObj) */
+
+//##14.map 数据结构 map是一种灵活的,简单的适合一对一查找的数据结构对比
+//1.json 和  map  ===>特殊的键值对
+/* let json = {
+	name: 'vuesea',
+	skill: 'web'
+}
+console.log(json.name)
+
+let map = new Map()
+map.set(json,'iam')
+//console.log(map)
+//map.set('vuesea',json)
+console.log(map)
+
+//2.map 的增删查 通过set 方法增加
+// map.set('vue',json)
+//console.log(map) 
+//取值  get()
+console.log(map.get(json))
+
+//删除 delete 
+//map.delete(json) 
+console.log(map)
+
+//size属性
+console.log(map.size)
+
+//查找 是否存在 has 
+console.log(map.has(json))
+
+//清除所有元素clear
+map.clear() */
+
+//# 16.用 Proxy 进行预处理
+// 1.定义对象的方法
+/* var obj ={
+	add:function (val) {
+		return val+10
+	},
+	name: 'I am vuesea'
+}
+
+console.log(obj.add(100))
+console.log(obj.name)
+
+//声明Proxy
+//new Proxy({},{})
+//通过 Proxy改写上面的对象
+let pro = new Proxy({
+	add: function (val) {
+		return val + 10
+	},
+	name: 'I am vuesea'
+},{
+	get:function (target,key,property) {
+		console.log('come in Get')
+		return target[key]
+	},
+	set:function (target,key,value,receiver) {
+		console.log(`    setting ${key} = ${value}`);
+		return target[key] = value;
+	}
+
+})
+
+console.log(pro.name)
+ */
+
+ //### Promise 对象的使用
+
+ /* let state = 1
+ function step1(resolve,reject) {
+	 console.log('1.开始-洗菜做饭')
+	 if(state==1){
+		 resolve('洗衣做饭--完成')
+	 }else{
+		 reject('洗衣做饭--失败')
+	 }
+ }
+
+function step2(resolve, reject) {
+	console.log('2.开始-坐下来吃饭')
+	if (state == 1) {
+		resolve('坐下来吃饭--完成')
+	} else {
+		reject('坐下来吃饭--失败')
+	}
+}
+
+function step3(resolve, reject) {
+	console.log('3.开始-开始收拾桌子')
+	if (state == 1) {
+		resolve('开始收拾桌子--完成')
+	} else {
+		reject('开始收拾桌子--失败')
+	}
+}
+
+new Promise(step1).then(function (val) {
+	console.log(val)
+	return new Promise(step2)
+}).then(function (val) {
+	console.log(val)
+	return new Promise(step3)	
+}).then(function(val){
+	console.log(val)
+	return val
+}) */
+
+//## 类的声明
+class Coder{
+	name(val){
+		console.log(val)
+	}
+	skill(val){
+		console.log(this.name('vuesea')+':'+'Skill:'+val)
+	}
+
+}
+let vuesea = new Coder
+vuesea.name('vuesea')
+vuesea.skill('web')
